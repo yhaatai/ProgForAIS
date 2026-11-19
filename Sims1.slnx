@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ConsoleUI/ConsoleUI.csproj" />
+  <Project Path="Core/Core.csproj" />
+  <Project Path="WinFormsApp1/WinFormsApp1.csproj" Id="20e09f7a-c62c-4d8e-b646-65dca873b39f" />
+</Solution>
