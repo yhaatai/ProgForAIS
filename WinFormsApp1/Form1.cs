@@ -9,7 +9,7 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        private Logic myLogic = new Logic();
+        private Logic logic = new Logic();
         public Form1()
         {
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace WinFormsApp1
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             int id = int.Parse(textId.Text);
-            myLogic.RemoveSims(id);
+            logic.RemoveSims(id);
             textName.Clear();
             textAge.Clear();
             textSex.Clear();
@@ -30,7 +30,7 @@ namespace WinFormsApp1
             string name = textName.Text;
             int age = int.Parse(textAge.Text);
             string sex = textSex.Text;
-            myLogic.AddSims(name, age, sex);
+            logic.AddSims(name, age, sex);
             textName.Clear();
             textAge.Clear();
             textSex.Clear();
@@ -39,7 +39,7 @@ namespace WinFormsApp1
         private void buttonShow_Click(object sender, EventArgs e)
         {
             listSims.Items.Clear();
-            foreach (var sim in myLogic.GetSims())
+            foreach (var sim in logic.GetSims())
             {
                 listSims.Items.Add(sim.ToString());
             }
@@ -51,7 +51,7 @@ namespace WinFormsApp1
             String Nname = textName.Text;
             int Nage = int.Parse(textAge.Text);
             String Nsex = textSex.Text;
-            myLogic.UpdateSim(id, Nname, Nage, Nsex);
+            logic.UpdateSim(id, Nname, Nage, Nsex);
             textName.Clear();
             textAge.Clear();
             textSex.Clear();
@@ -62,7 +62,7 @@ namespace WinFormsApp1
         {
             String sex = textSex.Text;
             listSims.Items.Clear();
-            foreach (var sim in myLogic.GetSex(sex))
+            foreach (var sim in logic.GetSex(sex))
             {
                 listSims.Items.Add(sim.ToString());
             }
@@ -71,7 +71,7 @@ namespace WinFormsApp1
         private void buttonGetAdult_Click(object sender, EventArgs e)
         {
             listSims.Items.Clear();
-            foreach (var sim in myLogic.GetAdult())
+            foreach (var sim in logic.GetAdult())
             {
                 listSims.Items.Add(sim.ToString());
             }
