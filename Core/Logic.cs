@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Xml.Linq;
-
 namespace Core
 {
     public class Logic
@@ -33,9 +32,14 @@ namespace Core
         public void UpdateSim(int id, string Nname, int Nage, string Nsex)
         {
             var sim = _sims.Find(s => s.Id == id);
-            sim.Name = Nname;
-            sim.Age = Nage;
-            sim.Sex = Nsex;
+
+            if (sim != null)
+            {
+                
+                sim.Name = Nname;
+                sim.Age = Nage;
+                sim.Sex = Nsex;
+            }
         }
 
         public List<Sim> GetSex(string sex)

@@ -17,7 +17,11 @@ namespace WinFormsApp1
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textId.Text);
+            int id;
+            if (!int.TryParse(textId.Text, out id))
+            {
+                MessageBox.Show("ВВЕДИ ID");
+            }
             logic.RemoveSims(id);
             textName.Clear();
             textAge.Clear();
@@ -28,7 +32,13 @@ namespace WinFormsApp1
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string name = textName.Text;
-            int age = int.Parse(textAge.Text);
+            int age;
+            if (!int.TryParse(textAge.Text, out age))
+            {
+                MessageBox.Show("ВВЕДИ ЧИСЛО");
+            }
+            
+            
             string sex = textSex.Text;
             logic.AddSims(name, age, sex);
             textName.Clear();
@@ -47,10 +57,22 @@ namespace WinFormsApp1
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textId.Text);
+            int id;
+            if (!int.TryParse(textId.Text, out id))
+            {
+                MessageBox.Show("ВВЕДИ ID");
+            }
             String Nname = textName.Text;
-            int Nage = int.Parse(textAge.Text);
+            int Nage;
+            if (string.IsNullOrEmpty(Nname))
+            {
+                MessageBox.Show("ВВЕДИ ИМЯ");
+            }
             String Nsex = textSex.Text;
+            if (!int.TryParse(textAge.Text, out Nage))
+            {
+                MessageBox.Show("ВВЕДИ ЧИСЛО");
+            }
             logic.UpdateSim(id, Nname, Nage, Nsex);
             textName.Clear();
             textAge.Clear();
